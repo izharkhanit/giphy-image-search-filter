@@ -18,7 +18,9 @@
 
   <div class="row">
     <div class="col-12">
-
+      <div *ngIf="error" class="alert alert-danger" id="error-wrapper">
+        An error occurred while querying the API, we apologise for the inconvenience
+      </div>
       <cdk-virtual-scroll-viewport itemSize="291">
         <div *ngIf="images" id="image-list-wrapper">
           <ng-container *cdkVirtualFor="let image of images; templateCacheSize: 100">
@@ -29,9 +31,7 @@
         </div>
       </cdk-virtual-scroll-viewport>
 
-      <div *ngIf="error" class="alert alert-danger" id="error-wrapper">
-        An error occurred while querying the API, we apologise for the inconvenience
-      </div>
+     
 
     </div>
   </div>

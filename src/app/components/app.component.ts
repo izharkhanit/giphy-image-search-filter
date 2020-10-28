@@ -37,8 +37,23 @@ export class AppComponent implements OnInit, OnDestroy {
       )
       .subscribe(newValue => {
         this.query = newValue;
-        this.search();
+        if(this.notAllowedSwear(this.query)){
+          this.search();
+        }
+       
       });
+  }
+
+  notAllowedSwear(query) {
+    // return the function that does the filtering
+    
+      if (query=="swear") {
+        this.error=true
+        return false;
+      } else {
+        return true;
+      }
+  
   }
 
   search() {
